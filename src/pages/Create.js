@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppContext } from "../store/Store";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 
 export default function Create() {
@@ -12,6 +12,7 @@ export default function Create() {
   const [review, setReview] = useState("");
 
   const store = useAppContext();
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const name = e.target.name;
@@ -42,13 +43,13 @@ export default function Create() {
     reader.readAsDataURL(file);
     reader.onloadend = function () {
       setCover(reader.result.toString());
-      console.log(cover);
+      
     };
   }
   function handleSubmit(e) {
     e.preventDefault();
     const newBook = {
-      id: crypto.randomUUID,
+      id: crypto.randomUUID(),
       title,
       author,
       cover,
@@ -58,6 +59,7 @@ export default function Create() {
     };
     //Registro para cada libro
     store.createItem(newBook);
+    navigate("/")
   }
   return (
     <Layout>
@@ -84,7 +86,7 @@ export default function Create() {
           <div>Autor</div>
           <input type="file" name="cover" onChange={handleChangeFile} />
           <div>
-            {!!cover ? <img src={cover} width="200" alt="preview" /> : "llol"}
+            {!!cover ? <img src={cover} width="200" alt="preview" /> : ""}
           </div>
         </div>
         <div>

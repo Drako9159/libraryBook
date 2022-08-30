@@ -5,13 +5,18 @@ import Books from "../components/Books";
 
 export default function Index() {
   const store = useAppContext();
+  const booksContainer = {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "10px",
+  }
 
   return (
     <Layout>
+      <div style={booksContainer}>{store.items.map((e) => (
+        <Books key={e.id} item={e}/>
+      ))}</div>
       
-      {store.items.map((e) => (
-        <Books key={e.key} item={e}/>
-      ))}
     </Layout>
   );
 }
