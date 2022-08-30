@@ -10,22 +10,36 @@ export default function View() {
 
   useEffect(() => {
     const book = store.getItem(params.bookId);
-    console.log(book)
+
     setItem(book);
   }, []);
   if (!item) {
     return <Layout>Not found</Layout>;
   }
+  const itemStyles = {
+    container: {
+      display: "flex",
+      gap: "20px",
+      color: "white",
+      width: "800px",
+      margin: "0 auto",
+    },
+  };
 
   return (
     <Layout>
-      <h2>{item?.title}</h2>
-
-      <div>{item?.cover ? <img src={item.cover} width="400" /> : ""}</div>
-      <div>{item?.author}</div>
-      <div>{item?.intro}</div>
-      <div>{item?.completed ? "Leido" : "Por terminar"}</div>
-      <div>{item?.review}</div>
+      <div style={itemStyles.container}>
+        <div>
+          <div>{item?.cover ? <img src={item.cover} width="400" /> : ""}</div>
+        </div>
+        <div>
+          <h2>{item?.title}</h2>
+          <div>{item?.author}</div>
+          <div>{item?.intro}</div>
+          <div>{item?.completed ? "Leido" : "Por terminar"}</div>
+          <div>{item?.review}</div>
+        </div>
+      </div>
     </Layout>
   );
 }
