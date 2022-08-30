@@ -1,3 +1,11 @@
-export default function Create(){
-    return <div>Create</div>
+import { useState } from "react";
+
+export default function Create() {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [cover, setCover] = useState("");
+  const [intro, setIntro] = useState("");
+  const [completed, setCompleted] = useState("");
+  const [review, setReview] = useState("");
+  return <div>Create</div>;
 }
