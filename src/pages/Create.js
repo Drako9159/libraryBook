@@ -157,7 +157,7 @@ export default function Create() {
             style={inputStyles.input}
           />
         </div>
-        <input type="submit" value="Register book" style={buttonStyle}/>
+        <input type="submit" value="Register book" style={buttonStyle} />
       </form>
     </Layout>
   );

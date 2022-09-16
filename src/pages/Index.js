@@ -9,14 +9,15 @@ export default function Index() {
     display: "flex",
     flexWrap: "wrap",
     gap: "10px",
-  }
+  };
 
   return (
     <Layout>
-      <div style={booksContainer}>{store.items.map((e) => (
-        <Books key={e.id} item={e}/>
-      ))}</div>
-      
+      <div style={booksContainer}>
+        {store.items.map((e) => (
+          <Books key={e.id} item={e} />
+        ))}
+      </div>
     </Layout>
   );
 }

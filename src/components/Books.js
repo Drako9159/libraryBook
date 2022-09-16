@@ -14,9 +14,7 @@ export default function Books({ item }) {
     color: "white",
     textDecoration: "none"
   };
-  const titleStyles = {
 
-  }
 
   return (
     <div style={booksContainerStyle}>
